@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <unattend xmlns="urn:schemas-microsoft-com:unattend" xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State">
 	<settings pass="windowsPE">
 		<component name="Microsoft-Windows-International-Core-WinPE" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS">
@@ -327,6 +327,10 @@
 				<RunSynchronousCommand wcm:action="add">
 					<Order>58</Order>
 					<Path>powershell.exe Set-LocalUser -Name "Bernhard M. Wiedeman" -PasswordNeverExpires 1</Path>
+				</RunSynchronousCommand>
+				<RunSynchronousCommand wcm:action="add">
+					<Order>59</Order>
+					<Path>powershell.exe New-ItemProperty -Path "HKCU:\SOFTWARE\Policies\Microsoft\Windows\CloudContent\" -Name DisableWindowsSpotlightFeatures -Value 1 -PropertyType DWORD -Force</Path>
 				</RunSynchronousCommand>
 			</RunSynchronous>
 		</component>

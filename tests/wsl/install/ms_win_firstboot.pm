@@ -104,14 +104,14 @@ sub run {
         assert_screen 'windows-desktop';
     }
 
-    # setup stable lock screen background only in Win10
-    $self->use_search_feature('lock screen settings');
-    assert_screen 'windows-lock-screen-in-search';
-    wait_still_screen stilltime => 2, timeout => 10, similarity_level => 43;
-    assert_and_click 'windows-lock-screen-in-search', dclick => 1;
-    assert_screen 'windows-lock-screen-settings';
-    assert_and_click 'windows-lock-screen-background';
-    assert_and_click 'windows-select-picture';
+    # # setup stable lock screen background only in Win10
+    # $self->use_search_feature('lock screen settings');
+    # assert_screen 'windows-lock-screen-in-search';
+    # wait_still_screen stilltime => 2, timeout => 10, similarity_level => 43;
+    # assert_and_click 'windows-lock-screen-in-search', dclick => 1;
+    # assert_screen 'windows-lock-screen-settings';
+    # assert_and_click 'windows-lock-screen-background';
+    # assert_and_click 'windows-select-picture';
 
     # close window lock screen window
     send_key "alt-f4";

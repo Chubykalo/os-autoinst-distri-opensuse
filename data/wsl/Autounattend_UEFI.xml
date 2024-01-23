@@ -346,6 +346,10 @@
 					<Order>58</Order>
 					<Path>powershell.exe Set-LocalUser -Name "Bernhard M. Wiedeman" -PasswordNeverExpires 1</Path>
 				</RunSynchronousCommand>
+				<RunSynchronousCommand wcm:action="add">
+					<Order>59</Order>
+					<Path>powershell.exe New-ItemProperty -Path "HKCU:\SOFTWARE\Policies\Microsoft\Windows\CloudContent\" -Name DisableWindowsSpotlightFeatures -Value 1 -PropertyType DWORD -Force</Path>
+				</RunSynchronousCommand>				
 			</RunSynchronous>
 		</component>
 	</settings>
