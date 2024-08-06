@@ -65,7 +65,7 @@ sub systemd_tests {
                 next;
             }
         }
-        record_info('Debug', "running $name test");
+        record_info('Debug', "running $name test"); # Remember to delete this line
         systemctl("is-enabled $name", expect_false => !$unit->{enabled});
         systemctl("is-active $name", expect_false => ($name =~ /sshd/) ? 0 : 1);
 
