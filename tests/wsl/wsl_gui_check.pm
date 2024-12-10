@@ -19,3 +19,5 @@ sub run {
 
     assert_screen(['windows-desktop', 'powershell-as-admin-window']);
 }
+
+1;
