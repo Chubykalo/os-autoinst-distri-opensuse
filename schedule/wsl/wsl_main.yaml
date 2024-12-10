@@ -8,6 +8,10 @@ conditional_schedule:
     WSL_SYSTEMD:
       '1':
         - wsl/enable_systemd
+  wsl_gui_check:
+    WSL_GUI:
+      '1':
+        - wsl/wsl_gui_check
 
 schedule:
   - wsl/boot_windows
@@ -15,4 +19,5 @@ schedule:
   - wsl/install_wsl
   - wsl/firstrun
   - '{{enable_systemd}}'
+  - '{{wsl_gui_check}}'
   - wsl/wsl_cmd_check
