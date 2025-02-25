@@ -80,10 +80,20 @@ sub run {
         assert_and_click 'wsl-suse-startup-search';
     } elsif ($install_from eq 'msstore') {
         # Install required SUSE distro from the MS Store
+        # $self->run_in_powershell(
+        #     cmd => "wsl --install --distribution $WSL_version",
+        #     code => sub {
+        #         $self->run_in_powershell(cmd => "wsl --distribution $WSL_version");
+        #         assert_screen("yast2-wsl-firstboot-welcome", timeout => 300);
+        #     }
+        # );
         $self->run_in_powershell(
             cmd => "wsl --install --distribution $WSL_version",
+            timeout => 300,
+        );
+        $self->run_in_powershell(
+            cmd => "wsl.exe --distribution $WSL_version",
             code => sub {
-                $self->run_in_powershell(cmd => "wsl --distribution $WSL_version");
                 assert_screen("yast2-wsl-firstboot-welcome", timeout => 300);
             }
         );
