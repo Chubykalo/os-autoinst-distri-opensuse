@@ -91,6 +91,9 @@ sub run {
             cmd => "wsl --install --distribution $WSL_version",
             timeout => 300,
         );
+        check_screen("welcome_to_wsl", timeout => 60);
+        send_key "alt-f4" if match_has_tag "welcome_to_wsl";
+
         $self->run_in_powershell(
             cmd => "wsl.exe --distribution $WSL_version",
             code => sub {
