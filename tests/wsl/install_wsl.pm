@@ -83,6 +83,7 @@ sub run {
         $self->run_in_powershell(
             cmd => "wsl --install --distribution $WSL_version",
             code => sub {
+                $self->run_in_powershell(cmd => "wsl --distribution $WSL_version");
                 assert_screen("yast2-wsl-firstboot-welcome", timeout => 300);
             }
         );
